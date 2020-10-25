@@ -1,5 +1,6 @@
 ﻿using DNNrocketAPI;
 using DNNrocketAPI.Componants;
+using RocketEcommerce.Componants;
 using Simplisity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ namespace RocketEcommerce.RE_CartPriceShipping
     {
         private SimplisityInfo _postInfo;
         private SimplisityInfo _paramInfo;
-        private CommandSecurity _commandSecurity;
         private RocketInterface _rocketInterface;
         private string _currentLang;
         private Dictionary<string, string> _passSettings;
@@ -32,35 +32,31 @@ namespace RocketEcommerce.RE_CartPriceShipping
             _currentLang = langRequired;
             if (_currentLang == "") _currentLang = DNNrocketUtils.GetCurrentCulture();
 
-            _commandSecurity = new CommandSecurity(-1, -1, _rocketInterface);
-            _commandSecurity.AddCommand("cartpriceship_edit", true);
-            _commandSecurity.AddCommand("cartpriceship_save", true);
-            _commandSecurity.AddCommand("cartpriceship_delete", true);
+            var portalShop = new PortalShopLimpet(PortalUtils.GetPortalId(), DNNrocketUtils.GetEditCulture());
+            var securityData = new SecurityLimet(portalShop.PortalId, _systemData.SystemKey, _rocketInterface, -1, -1);
+            paramCmd = securityData.HasSecurityAccess(paramCmd, "cartpriceship_login");
 
-            if (!_commandSecurity.HasSecurityAccess(paramCmd))
+            switch (paramCmd)
             {
-                strOut = UserUtils.LoginForm(systemInfo, postInfo, _rocketInterface.InterfaceKey, UserUtils.GetCurrentUserId());
-            }
-            else
-            {
-                switch (paramCmd)
-                {
-                    case "cartpriceship_edit":
-                        strOut = EditData();
-                        break;
-                    case "cartpriceship_save":
-                        SaveData();
-                        strOut = EditData();
-                        break;
-                    case "cartpriceship_delete":
-                        DeleteData();
-                        strOut = EditData();
-                        break;
-                    case "cartpriceship_addrange":
-                        AddRange();
-                        strOut = EditData();
-                        break;                        
-                }
+                case "cartpriceship_login":
+                    strOut = UserUtils.LoginForm(systemInfo, postInfo, _rocketInterface.InterfaceKey, UserUtils.GetCurrentUserId());
+                    break;
+
+                case "cartpriceship_edit":
+                    strOut = EditData();
+                    break;
+                case "cartpriceship_save":
+                    SaveData();
+                    strOut = EditData();
+                    break;
+                case "cartpriceship_delete":
+                    DeleteData();
+                    strOut = EditData();
+                    break;
+                case "cartpriceship_addrange":
+                    AddRange();
+                    strOut = EditData();
+                    break;
             }
 
             if (!rtnDic.ContainsKey("outputjson")) rtnDic.Add("outputhtml", strOut);

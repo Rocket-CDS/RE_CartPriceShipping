@@ -21,26 +21,26 @@ namespace RocketEcommerce.RE_CartPriceShipping
             return false;
         }
 
-        public override decimal CalculateShippingCost(CartLimpet cartData)
+        public override int CalculateShippingCost(CartLimpet cartData)
         {
-            return CalcCost(cartData.SubTotal);
+            return CalcCost(cartData.SubTotalCents);
         }
 
-        public override decimal CalculateShippingCost(OrderLimpet orderData)
+        public override int CalculateShippingCost(OrderLimpet orderData)
         {
-            return CalcCost(orderData.SubTotal);
+            return CalcCost(orderData.SubTotalCents);
         }
 
-        private decimal CalcCost(decimal cartSubTotal)
+        private int CalcCost(int cartSubTotal)
         {
             var shipData = new ShipData(PortalUtils.SiteGuid());
-            var cost = shipData.Info.GetXmlPropertyDecimal("genxml/textbox/defaultcost");
+            var cost = shipData.Info.GetXmlPropertyInt("genxml/textbox/defaultcost");
             var datalist = shipData.Info.GetList("range");
             foreach (var rangeInfo in datalist)
             {
-                var lowrange = rangeInfo.GetXmlPropertyDecimal("genxml/textbox/lowrange");
-                var highrange = rangeInfo.GetXmlPropertyDecimal("genxml/textbox/highrange");
-                var rangecost = rangeInfo.GetXmlPropertyDecimal("genxml/textbox/cost");
+                var lowrange = rangeInfo.GetXmlPropertyInt("genxml/textbox/lowrange");
+                var highrange = rangeInfo.GetXmlPropertyInt("genxml/textbox/highrange");
+                var rangecost = rangeInfo.GetXmlPropertyInt("genxml/textbox/cost");
                 if (cartSubTotal >= lowrange && cartSubTotal < highrange) cost = rangecost;
             }
             return cost;
