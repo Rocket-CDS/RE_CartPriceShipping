@@ -34,6 +34,12 @@ namespace RocketEcommerce.RE_CartPriceShipping
 
             var portalShop = new PortalShopLimpet(PortalUtils.GetPortalId(), DNNrocketUtils.GetEditCulture());
             var securityData = new SecurityLimet(portalShop.PortalId, _systemData.SystemKey, _rocketInterface, -1, -1);
+            // Add any extra command that the provider needs.
+            securityData.AddCommand("cartpriceship_edit", true);
+            securityData.AddCommand("cartpriceship_save", true);
+            securityData.AddCommand("cartpriceship_delete", true);
+            securityData.AddCommand("cartpriceship_addrange", true);
+
             paramCmd = securityData.HasSecurityAccess(paramCmd, "cartpriceship_login");
 
             switch (paramCmd)
