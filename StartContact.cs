@@ -1,6 +1,6 @@
 ﻿using DNNrocketAPI;
-using DNNrocketAPI.Componants;
-using RocketEcommerce.Componants;
+using DNNrocketAPI.Components;
+using RocketEcommerce.Components;
 using Simplisity;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace RocketEcommerce.RE_CartPriceShipping
             if (_currentLang == "") _currentLang = DNNrocketUtils.GetCurrentCulture();
 
             var portalShop = new PortalShopLimpet(PortalUtils.GetPortalId(), DNNrocketUtils.GetEditCulture());
-            var securityData = new SecurityLimet(portalShop.PortalId, _systemData.SystemKey, _rocketInterface, -1, -1);
+            var securityData = new SecurityLimpet(portalShop.PortalId, _systemData.SystemKey, _rocketInterface, -1, -1);
             // Add any extra command that the provider needs.
             securityData.AddCommand("cartpriceship_edit", true);
             securityData.AddCommand("cartpriceship_save", true);

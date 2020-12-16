@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Installation\**" />
+    <EmbeddedResource Remove="Installation\**" />
+    <None Remove="Installation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DNNrocketAPI">
       <HintPath>..\..\..\bin\DNNrocketAPI.dll</HintPath>
     </Reference>
@@ -16,10 +22,6 @@
     <Reference Include="Simplisity">
       <HintPath>..\..\..\bin\Simplisity.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Installation\" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

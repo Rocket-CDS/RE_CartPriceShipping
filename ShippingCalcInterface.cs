@@ -1,5 +1,5 @@
-﻿using DNNrocketAPI.Componants;
-using RocketEcommerce.Componants;
+﻿using DNNrocketAPI.Components;
+using RocketEcommerce.Components;
 using RocketEcommerce.Interfaces;
 using System;
 using System.Collections.Generic;
