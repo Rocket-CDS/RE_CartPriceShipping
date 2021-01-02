@@ -1,0 +1,47 @@
+<item>
+  <typecode>INTERFACE</typecode>
+  <guidkey>rocketecommerce</guidkey>
+  <genxml>
+    <interfacedata list="true">
+
+
+      <genxml>
+        <textbox>
+          <interfacekey>cartpriceship</interfacekey>
+          <interfacename>Cart Price Shipping</interfacename>
+          <namespaceclass>RocketEcommerce.RE_CartPriceShipping.StartConnect</namespaceclass>
+          <providernamespaceclass>RocketEcommerce.RE_CartPriceShipping.ShippingCalcInterface</providernamespaceclass>
+          <assembly>RE_CartPriceShipping</assembly>
+          <help>Base Shipping cost calculated on the cart price.  One or multiple ranges can be used.</help>
+          <entitytypecode>CARTPRICESHIP</entitytypecode>
+          <interfaceicon>fab fa-money</interfaceicon>
+          <defaulttheme>config-w3</defaulttheme>
+          <themeversion>1.0</themeversion>
+          <defaulttemplate>settings.cshtml</defaulttemplate>
+          <defaultcommand>cartpriceship_edit</defaultcommand>
+          <databasetable>RocketEcommerce</databasetable>
+          <relpath>/DesktopModules/DNNrocketModules/RE_CartPriceShipping</relpath>
+        </textbox>
+        <providertype>shipping</providertype>
+        <dropdownlist>
+          <group>sales</group>
+        </dropdownlist>
+        <checkbox>
+          <onmenu>false</onmenu>
+          <active>true</active>
+        </checkbox>
+        <radio>
+          <securityrolesadministrators>1</securityrolesadministrators>
+          <securityrolesmanager>1</securityrolesmanager>
+          <securityroleseditor>2</securityroleseditor>
+          <securityrolesclienteditor>2</securityrolesclienteditor>
+          <securityrolesregisteredusers>2</securityrolesregisteredusers>
+          <securityrolessubscribers>2</securityrolessubscribers>
+          <securityrolesall>2</securityrolesall>
+        </radio>
+      </genxml>
+      
+      
+    </interfacedata>
+  </genxml>
+</item>
