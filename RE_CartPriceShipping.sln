@@ -14,22 +14,24 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Razor|Any CPU = Razor|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2D30F254-59AC-41DA-A657-6996C0170616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D30F254-59AC-41DA-A657-6996C0170616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D30F254-59AC-41DA-A657-6996C0170616}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
 		{2D30F254-59AC-41DA-A657-6996C0170616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D30F254-59AC-41DA-A657-6996C0170616}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1924A80B-DDDA-474B-8547-A601A0D535BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1924A80B-DDDA-474B-8547-A601A0D535BF}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
 		{1924A80B-DDDA-474B-8547-A601A0D535BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1924A80B-DDDA-474B-8547-A601A0D535BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
 		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D441193-5B86-4713-81E0-7D817DF733B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D441193-5B86-4713-81E0-7D817DF733B7}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
 		{3D441193-5B86-4713-81E0-7D817DF733B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D441193-5B86-4713-81E0-7D817DF733B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
