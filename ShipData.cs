@@ -34,12 +34,27 @@ namespace RocketEcommerce.RE_CartPriceShipping
         public void Save(SimplisityInfo postInfo)
         {
             Info.XMLData = postInfo.XMLData;
-            Update();
+            ValidateAndUpdate();
             LogUtils.LogTracking("Save - UserId: " + UserUtils.GetCurrentUserId() + " " + postInfo.XMLData, "CARTPRICESHIP");
         }
-        public void Update()
+        public int ValidateAndUpdate()
         {
-            _objCtrl.Update(Info, _tableName);
+            Validate();
+            return Update();
+        }
+        public void Validate()
+        {
+            var lp = 1;
+            var costList = Info.GetList("range");
+            foreach (var cost in costList)
+            {
+                Info.SetXmlPropertyInt("genxml/range/genxml[" + lp + "]/textbox/cost", PortalShop.CurrencyConvertCents(cost.GetXmlProperty("genxml/textbox/cost")).ToString());
+                lp += 1;
+            }
+        }
+        public int Update()
+        {
+            return _objCtrl.Update(Info, _tableName);
         }
         public void Delete()
         {

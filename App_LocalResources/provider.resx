@@ -127,19 +127,19 @@
     <value>Cart Price Settings</value>
   </data>
   <data name="cost.Text" xml:space="preserve">
-    <value>Cost (In Cents)</value>
+    <value>Cost</value>
   </data>
   <data name="defaultcost.Help" xml:space="preserve">
     <value>The default cost is the cost that is returned by this provider if it cannot calculate a shipping cost based on the parameters/data given.</value>
   </data>
   <data name="defaultcost.Text" xml:space="preserve">
-    <value>Default Cost (In Cents)</value>
+    <value>Default Cost</value>
   </data>
   <data name="highrange.Text" xml:space="preserve">
-    <value>High Range (In Cents)</value>
+    <value>High Range</value>
   </data>
   <data name="lowrange.Text" xml:space="preserve">
-    <value>Low Range (In Cents)</value>
+    <value>Low Range</value>
   </data>
   <data name="shippingcents.Help" xml:space="preserve">
     <value>For calculation all values MUST be in cents.  (All numeric values defined are without any formating)</value>

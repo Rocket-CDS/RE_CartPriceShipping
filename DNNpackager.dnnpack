@@ -1,7 +1,9 @@
 <root>
 	<version>1.0.0</version>
-	<!-- Include only files that match the regular expression -->
-  <regexpr>(\.cshtml|\.html|\.resx|\.dnn|\.png|\.css|\.js|\.xml|\.txt|\.md|\.aspx|\.ascx|\.ashx)$</regexpr>
+  <websitedestrelpath>\DesktopModules\DNNrocketModules\RE_CartPriceShipping</websitedestrelpath>
+  <websitedestbinrelpath>\bin</websitedestbinrelpath>
+  <!-- Include only files that match the regular expression -->
+  <regexpr>(\.cshtml|\.html|\.resx|\.dnn|\.png|\.jpg|\.gif|\.css|\.svg|\.js|\.xml|\.txt|\.md|\.aspx|\.ascx|\.ashx|\.woff|\.woff2|\.ttf|\.config)$</regexpr>
   <directory include='false'>
 		<!-- All paths should be from the source root (project root) -->
 		<value>\.git</value>
@@ -19,9 +21,10 @@
   <file include='false'>
   </file>
   <file include='true'>
-    <value>\Installation\RE_CartPriceShipping_system.xml</value>
+    <value>\system.rules</value>
   </file>
 	<assembly>
 		<value>RE_CartPriceShipping.dll</value>
-	</assembly>
+    <value>RE_CartPriceShipping.pdb</value>
+  </assembly>
 </root>

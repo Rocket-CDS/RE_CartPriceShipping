@@ -13,6 +13,10 @@
     <ProjectReference Include="..\RocketEcommerce\RocketEcommerce.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Installation\" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="&#xD;&#xA;DNNpackager.exe $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)&#xD;&#xA;" />
   </Target>

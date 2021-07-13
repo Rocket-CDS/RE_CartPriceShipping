@@ -1,13 +1,14 @@
-@inherits DNNrocketAPI.render.DNNrocketTokens<Simplisity.SimplisityRazor>
+@inherits RocketEcommerce.Components.RocketEcommerceTokens<Simplisity.SimplisityRazor>
 @using System.Linq
 @using Simplisity;
 @using DNNrocketAPI.Components;
-@using RocketEcommerce.RE_CartPriceShipping;
+@using RocketEcommerce.Components;
 
 @{
     var info = (SimplisityInfo)Model.List.First();
     var datalist = info.GetList("range");
     var systemData = new SystemLimpet("rocketecommerce");
+    var productData = new PortalShopLimpet(info.PortalId, DNNrocketUtils.GetCurrentCulture());
     var interfaceData = systemData.GetInterface("cartpriceship");
     var modLP = 1;
 }
@@ -17,14 +18,16 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RE_CartPriceShipping/App_LocalResources/")
 
 
-    <div class="w3-row w3-padding">
-        <div class="w3-col m2 rocket-buttonbar w3-button w3-khaki " onclick="window.location.reload(false);">@ButtonText(ButtonTypes.back)</div>
-        <div class="w3-col m2 rocket-buttonbar w3-button w3-green simplisity_click " s-cmd="cartpriceship_save" s-post="#datasave"  s-list=".range" s-fields=''>@ButtonText(ButtonTypes.save)</div>
-        @if (Model.GetSettingBool("saved"))
-        {
-            <i class='fas fa-save w3-right simplisity_fadeout' style="font-size:24px"></i>
-        }
-    </div>
+<div class="w3-row w3-padding">
+    <div class="w3-button" onclick="window.location.reload(false);">@ButtonIcon(ButtonTypes.back)</div>
+    <div class="w3-button w3-theme-action simplisity_click " s-cmd="cartpriceship_save" s-post="#datasave" s-list=".range" s-fields=''>@ButtonText(ButtonTypes.save)</div>
+    @if (Model.GetSettingBool("saved"))
+    {
+        <span class="simplisity_fadeout">
+            @ButtonIcon(ButtonTypes.save)
+        </span>
+    }
+</div>
 
 <div id="datasave" class="w3-margin-top">
 
@@ -40,7 +43,7 @@
         <label>Assembly</label>
         @TextBox(info, "genxml/textbox/assembly", "class='w3-input w3-border'  autocomplete='off' disabled ", interfaceData.Assembly)
         <label>Namespace + Class</label>
-        @TextBox(info, "genxml/textbox/namespaceclass", "class='w3-input w3-border'  autocomplete='off' disabled ", interfaceData.ProviderNameSpaceClass)
+        @TextBox(info, "genxml/textbox/namespaceclass", "class='w3-input w3-border'  autocomplete='off' disabled ", interfaceData.NameSpaceClass)
     </div>
 
     <div class="w3-container">
@@ -58,8 +61,8 @@
 
         <div class="w3-container">
             <div class="w3-col w3-padding">
-                <div class="w3-button rocket-buttonbar w3-teal w3-padding-8 simplisity_click" s-post="#datasave" s-list=".range" s-cmd="cartpriceship_addrange" s-fields=''><i class='fas fa-plus-circle'></i></div>
-                <div class="w3-button rocket-buttonbar w3-pale-yellow w3-padding-8 simplisity_itemundo" s-recylebin="rangelistbin"  s-return="#rangedata" s-removelist=".range" style="display: none;"><i class="fas fa-undo fa-fw fa-lg"></i></div>
+                <div class="w3-button w3-theme-action simplisity_click" s-post="#datasave" s-list=".range" s-cmd="cartpriceship_addrange" s-fields=''>@ButtonIcon(ButtonTypes.add)</div>
+                <div class="w3-button simplisity_itemundo" s-recylebin="rangelistbin" s-return="#rangedata" s-removelist=".range" style="display: none;">@ButtonIcon(ButtonTypes.undo)</div>
             </div>
         </div>
 
@@ -73,15 +76,15 @@
                     <div class="w3-row w3-display-container w3-card">
                         <div class="w3-col m2 w3-padding">
                             <label class="">@ResourceKey("provider.lowrange")</label>
-                            @TextBox(rangeInfo, "genxml/textbox/lowrange", " class='w3-input w3-border' autocomplete='off' ", "", false, modLP)
+                            @TextBoxMoney(productData.PortalId, productData.CultureCode, rangeInfo, "genxml/textbox/lowrange", "  class='w3-input w3-border w3-right-align ' autocomplete='off' ", "0", false, modLP)
                         </div>
                         <div class="w3-col m2 w3-padding">
                             <label class="">@ResourceKey("provider.highrange")</label>
-                            @TextBox(rangeInfo, "genxml/textbox/highrange", " class='w3-input w3-border' autocomplete='off' ", "", false, modLP)
+                            @TextBoxMoney(productData.PortalId, productData.CultureCode, rangeInfo, "genxml/textbox/highrange", "  class='w3-input w3-border w3-right-align ' autocomplete='off' ", "0", false, modLP)
                         </div>
                         <div class="w3-col m2 w3-padding">
                             <label class="">@ResourceKey("provider.cost")</label>
-                            @TextBox(rangeInfo, "genxml/textbox/cost", "  class='w3-input w3-border w3-right-align ' autocomplete='off' ", "0", false, modLP)
+                            @TextBoxMoney(productData.PortalId, productData.CultureCode, rangeInfo, "genxml/textbox/cost", "  class='w3-input w3-border w3-right-align ' autocomplete='off' ", "0", false, modLP)
                         </div>
                         <div class="simplisity_removelistitem w3-right w3-padding" s-removelist=".range" s-recylebin="rangelistbin" style="cursor: pointer;">
                             <i title="@ResourceKey("DNNrocket.delete")" class=" fas fa-minus-square fa-fw fa-lg"></i>
