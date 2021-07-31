@@ -76,7 +76,17 @@ namespace RocketEcommerce.RE_CartPriceShipping
         }
         public PortalShopLimpet PortalShop { get; set; }
         public SimplisityInfo Info { get; set; }
-
+        public string SelectText
+        {
+            get { return Info.GetXmlProperty("genxml/lang/genxml/textbox/selecttext"); }
+            set { Info.SetXmlProperty("genxml/lang/genxml/textbox/selecttext", value); }
+        }
+        public string Msg
+        {
+            get { return Info.GetXmlProperty("genxml/lang/genxml/textbox/msg"); }
+            set { Info.SetXmlProperty("genxml/lang/genxml/textbox/msg", value); }
+        }
+        public string InterfaceKey { get { return "cartpriceship"; } }
 
     }
 }

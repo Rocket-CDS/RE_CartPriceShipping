@@ -141,7 +141,13 @@
   <data name="lowrange.Text" xml:space="preserve">
     <value>Low Range</value>
   </data>
-  <data name="shippingcents.Help" xml:space="preserve">
-    <value>For calculation all values MUST be in cents.  (All numeric values defined are without any formating)</value>
+  <data name="cartpriceship.Text" xml:space="preserve">
+    <value>Cart Price Shipping</value>
+  </data>
+  <data name="msg.Text" xml:space="preserve">
+    <value>Message Text (html)</value>
+  </data>
+  <data name="selecttext.Text" xml:space="preserve">
+    <value>Select Text (html)</value>
   </data>
 </root>
