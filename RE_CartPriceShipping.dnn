@@ -1,7 +1,7 @@
 ﻿<dotnetnuke type="Package" version="5.0">
 	<packages>
     
-		<package name="RE_CartPriceShipping" type="Library" version="1.0.0">
+		<package name="RE_CartPriceShipping" type="Library" version="1.0.1">
 			<friendlyName>RE_CartPriceShipping</friendlyName>
 			<description>RE_CartPriceShipping</description>
       <iconFile></iconFile>

@@ -34,6 +34,23 @@ namespace RocketEcommerce.RE_CartPriceShipping
         public void Save(SimplisityInfo postInfo)
         {
             Info.XMLData = postInfo.XMLData;
+
+            // we rewrite to the property, so we use the correct format for the culture.
+            var pAmount = PortalShop.CurrencyConvertToCulture(Info.GetXmlPropertyRaw("genxml/textbox/defaultcost"));
+            Info.SetXmlPropertyInt("genxml/textbox/defaultcost", PortalShop.CurrencyConvertCents(pAmount.ToString()).ToString());
+
+            var lp = 1;
+            foreach (var r in Info.GetList("range"))
+            {
+                var amt = PortalShop.CurrencyConvertToCulture(Info.GetXmlPropertyRaw("genxml/range/genxml[" + lp + "]/textbox/lowrange"));
+                Info.SetXmlPropertyInt("genxml/range/genxml[" + lp + "]/textbox/lowrange", PortalShop.CurrencyConvertCents(amt.ToString()).ToString());
+                var amt2 = PortalShop.CurrencyConvertToCulture(Info.GetXmlPropertyRaw("genxml/range/genxml[" + lp + "]/textbox/highrange"));
+                Info.SetXmlPropertyInt("genxml/range/genxml[" + lp + "]/textbox/highrange", PortalShop.CurrencyConvertCents(amt2.ToString()).ToString());
+                var amt3 = PortalShop.CurrencyConvertToCulture(Info.GetXmlPropertyRaw("genxml/range/genxml[" + lp + "]/textbox/cost"));
+                Info.SetXmlPropertyInt("genxml/range/genxml[" + lp + "]/textbox/cost", PortalShop.CurrencyConvertCents(amt3.ToString()).ToString());
+                lp += 1;
+            }
+
             ValidateAndUpdate();
             LogUtils.LogTracking("Save - UserId: " + UserUtils.GetCurrentUserId() + " " + postInfo.XMLData, "CARTPRICESHIP");
         }
@@ -44,13 +61,6 @@ namespace RocketEcommerce.RE_CartPriceShipping
         }
         public void Validate()
         {
-            var lp = 1;
-            var costList = Info.GetList("range");
-            foreach (var cost in costList)
-            {
-                Info.SetXmlPropertyInt("genxml/range/genxml[" + lp + "]/textbox/cost", PortalShop.CurrencyConvertCents(cost.GetXmlProperty("genxml/textbox/cost")).ToString());
-                lp += 1;
-            }
         }
         public int Update()
         {

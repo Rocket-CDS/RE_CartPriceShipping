@@ -17,6 +17,7 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketEcommerce/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RE_CartPriceShipping/App_LocalResources/")
 
+@RenderLanguageSelector("cartpriceship_edit", "", "rocketecommerce", Model)
 
 <div class="w3-row w3-padding">
     <div class="w3-button" onclick="window.location.reload(false);">@ButtonIcon(ButtonTypes.back)</div>
@@ -49,11 +50,11 @@
     <div class="w3-container">
 
         <div class="w3-row">
-            <div class="w3-third">
+            <div class="w3-col m3" style="width:100px;">
                 <label>@ResourceKey("provider.defaultcost")</label>
-                @TextBox(info, "genxml/textbox/defaultcost", "class='w3-input w3-border'  autocomplete='off'  ", "0")
+                @TextBoxMoney(productData.PortalId, productData.CultureCode, info, "genxml/textbox/defaultcost", "  class='w3-input w3-border w3-right-align ' autocomplete='off' ", "0")
             </div>
-            <div class="w3-twothird w3-padding">
+            <div class="w3-col m9 w3-padding">
                 @ResourceKey("provider.defaultcost", "", "Help")
             </div>
         </div>
@@ -120,5 +121,9 @@
         <label>@ResourceKey("DNNrocket.active")</label>
         @CheckBox(info, "genxml/checkbox/active", "", "class='w3-check'")
 
+    </div>
+
+    <div class="w3-tiny w3-padding">
+        ItemId: @info.ItemID &nbsp; PortalId: @info.PortalId &nbsp; SiteKey: @info.GUIDKey
     </div>
 </div>
