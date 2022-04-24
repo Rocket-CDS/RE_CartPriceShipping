@@ -50,7 +50,7 @@
 
         <component type="File">
           <files>
-            <basePath>DesktopModules\DNNrocketModules\RocketEcommerce\Plugins</basePath>
+            <basePath>DesktopModules\DNNrocketModules\RocketEcommerce\Plugins\RE_CartPriceShipping</basePath>
             <file>
               <name>cartpriceship.rules</name>
               <sourceFileName>system.rules</sourceFileName>
