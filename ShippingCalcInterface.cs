@@ -11,7 +11,7 @@ namespace RocketEcommerce.RE_CartPriceShipping
     {
         private ShipData GetShipData()
         {
-            var shipData = new ShipData(PortalUtils.SiteGuid());
+            var shipData = new ShipData("RE_CartPriceShipping_" + PortalUtils.GetPortalId());
             return shipData;
         }
         public override bool Active()
@@ -46,7 +46,7 @@ namespace RocketEcommerce.RE_CartPriceShipping
 
         private int CalcCost(int cartSubTotal)
         {
-            var shipData = new ShipData(PortalUtils.SiteGuid());
+            var shipData = new ShipData("RE_CartPriceShipping_" + PortalUtils.GetPortalId());
             var cost = shipData.Info.GetXmlPropertyInt("genxml/textbox/defaultcost");
             var datalist = shipData.Info.GetList("range");
             foreach (var rangeInfo in datalist)
