@@ -74,24 +74,24 @@ namespace RocketEcommerce.RE_CartPriceShipping
 
         public String EditData()
         {
-            var shipData = new ShipData("RE_CartWeightShipping_" + PortalUtils.GetPortalId());
+            var shipData = new ShipData(PortalUtils.GetPortalId());
             var razorTempl = _appThemeSystem.GetTemplate("settings.cshtml");
             var pr = RenderRazorUtils.RazorProcessData(razorTempl, shipData.Info, null, _passSettings, new SessionParams(_paramInfo), true);
             return pr.RenderedText;
         }
         public void SaveData()
         {
-            var shipData = new ShipData("RE_CartWeightShipping_" + PortalUtils.GetPortalId());
+            var shipData = new ShipData(PortalUtils.GetPortalId());
             shipData.Save(_postInfo);
         }
         public void DeleteData()
         {
-            var shipData = new ShipData("RE_CartWeightShipping_" + PortalUtils.GetPortalId());
+            var shipData = new ShipData(PortalUtils.GetPortalId());
             shipData.Delete();
         }
         public void AddRange()
         {
-            var shipData = new ShipData("RE_CartWeightShipping_" + PortalUtils.GetPortalId());
+            var shipData = new ShipData(PortalUtils.GetPortalId());
             shipData.Info.AddListItem("range");
             shipData.Update();
         }
