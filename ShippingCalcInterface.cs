@@ -21,12 +21,12 @@ namespace RocketEcommerce.RE_CartPriceShipping
 
         public override int CalculateShippingCost(CartLimpet cartData)
         {
-            return CalcCost(cartData.SubTotalCents);
+            return CalcCost(cartData.PortalId, cartData.SubTotalCents);
         }
 
         public override int CalculateShippingCost(OrderLimpet orderData)
         {
-            return CalcCost(orderData.SubTotalCents);
+            return CalcCost(orderData.PortalId, orderData.SubTotalCents);
         }
 
         public override string Msg()
@@ -44,9 +44,9 @@ namespace RocketEcommerce.RE_CartPriceShipping
             return GetShipData().InterfaceKey;
         }
 
-        private int CalcCost(int cartSubTotal)
+        private int CalcCost(int portalId, int cartSubTotal)
         {
-            var shipData = new ShipData(PortalUtils.GetPortalId());
+            var shipData = new ShipData(portalId);
             var cost = shipData.Info.GetXmlPropertyInt("genxml/textbox/defaultcost");
             var datalist = shipData.Info.GetList("range");
             foreach (var rangeInfo in datalist)
