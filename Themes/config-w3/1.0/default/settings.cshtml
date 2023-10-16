@@ -1,23 +1,23 @@
-@inherits RocketEcommerce.Components.RocketEcommerceTokens<Simplisity.SimplisityRazor>
+@inherits RocketEcommerceAPI.Components.RocketEcommerceAPITokens<Simplisity.SimplisityRazor>
 @using System.Linq
 @using Simplisity;
 @using DNNrocketAPI.Components;
-@using RocketEcommerce.Components;
+@using RocketEcommerceAPI.Components;
 
 @{
     var info = (SimplisityInfo)Model.List.First();
     var datalist = info.GetList("range");
-    var systemData = new SystemLimpet("rocketecommerce");
+    var systemData = new SystemLimpet("rocketecommerceapi");
     var productData = new PortalShopLimpet(info.PortalId, DNNrocketUtils.GetCurrentCulture());
     var interfaceData = systemData.GetInterface("cartpriceship");
     var modLP = 1;
 }
 
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketEcommerce/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketEcommerceAPI/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RE_CartPriceShipping/App_LocalResources/")
 
-@RenderLanguageSelector("cartpriceship_edit", "", "rocketecommerce", Model)
+@RenderLanguageSelector("cartpriceship_edit", "", "rocketecommerceapi", Model)
 
 <div class="w3-row w3-padding w3-margin-top">
     <div class="w3-button" onclick="window.location.reload(false);">@ButtonIcon(ButtonTypes.back)</div>

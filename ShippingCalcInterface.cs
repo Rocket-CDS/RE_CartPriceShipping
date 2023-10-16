@@ -1,11 +1,11 @@
 ﻿using DNNrocketAPI.Components;
-using RocketEcommerce.Components;
-using RocketEcommerce.Interfaces;
+using RocketEcommerceAPI.Components;
+using RocketEcommerceAPI.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RocketEcommerce.RE_CartPriceShipping
+namespace RocketEcommerceAPI.RE_CartPriceShipping
 {
     public class ShippingCalcInterface : ShippingInterface
     {

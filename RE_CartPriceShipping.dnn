@@ -1,7 +1,7 @@
 ﻿<dotnetnuke type="Package" version="5.0">
 	<packages>
     
-		<package name="RE_CartPriceShipping" type="Library" version="1.0.2">
+		<package name="RE_CartPriceShipping" type="Library" version="1.1.0">
 			<friendlyName>RE_CartPriceShipping</friendlyName>
 			<description>RE_CartPriceShipping</description>
       <iconFile></iconFile>
@@ -50,7 +50,7 @@
 
         <component type="File">
           <files>
-            <basePath>DesktopModules\DNNrocketModules\RocketEcommerce\Plugins\RE_CartPriceShipping</basePath>
+            <basePath>DesktopModules\DNNrocketModules\RocketEcommerceAPI\Plugins\RE_CartPriceShipping</basePath>
             <file>
               <name>cartpriceship.rules</name>
               <sourceFileName>system.rules</sourceFileName>
