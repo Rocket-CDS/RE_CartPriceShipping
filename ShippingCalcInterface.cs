@@ -1,6 +1,7 @@
 ﻿using DNNrocketAPI.Components;
 using RocketEcommerceAPI.Components;
 using RocketEcommerceAPI.Interfaces;
+using Simplisity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,5 +60,9 @@ namespace RocketEcommerceAPI.RE_CartPriceShipping
             return cost;
         }
 
+        public override string RenderTemplate(string templateName, SimplisityRazor Model)
+        {
+            return "";
+        }
     }
 }
